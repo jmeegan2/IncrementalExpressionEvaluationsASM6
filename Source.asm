@@ -22,10 +22,12 @@ byte_2				BYTE		70d
 byte_2Text			byte		"The value in 'byte_2' is   : ",0
 phrasePracticeOne	byte		"Practice Expression #01",0
 line				byte		"------------------------------------" ,0
+PracticeOneARM		byte		"-(integer_1 + integer_2)", 0
 intermediate_1		DWORD		0
 intermediate_2		DWORD		0
 intermediate_3		DWORD		0
 phrase_plus			BYTE		"+", 0
+
 ; CODE SEGMENT
 .code
 main PROC
@@ -68,6 +70,8 @@ main PROC
 	call writestring
 	call crlf
 	mov edx, offset line
+	call writestring
+	mov edx, offset practiceOneARM
 	call writestring
 	
 	
