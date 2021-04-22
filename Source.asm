@@ -13,19 +13,22 @@ ExitProcess PROTO, dwExitCode:DWORD
 ; DATA SEGMENT
 .data
 integer_1			DWORD		10d
-integer_1Text		BYTE		"The value in 'integer_1' is : ", 0	
+integer_1Text		BYTE		"The value in 'integer_1' is    : ", 0	
 integer_2			DWORD		50d
-integer_2Text		BYTE		"The value in 'integer_2' is : ",0	
+integer_2Text		BYTE		"The value in 'integer_2' is    : ",0	
 byte_1				BYTE		30d
-byte_1Text			byte		"The value in 'byte_1' is   : ",0
+byte_1Text			byte		"The value in 'byte_1' is       : ",0
 byte_2				BYTE		70d
-byte_2Text			byte		"The value in 'byte_2' is   : ",0
+byte_2Text			byte		"The value in 'byte_2' is       : ",0
 phrasePracticeOne	byte		"Practice Expression #01",0
 line				byte		"------------------------------------" ,0
 PracticeOneARM		byte		"-(integer_1 + integer_2)", 0
 intermediate_1		DWORD		0
+intermediate_1Text  byte		"The value in 'intermiate_1' is :", 0
 intermediate_2		DWORD		0
+intermediate_2Text  byte		"The value in 'intermiate_2' is :", 0
 intermediate_3		DWORD		0
+intermediate_3Text  byte		"The value in 'intermiate_3' is :", 0
 phrase_plus			BYTE		"+", 0
 
 ; CODE SEGMENT
@@ -71,8 +74,19 @@ main PROC
 	call crlf
 	mov edx, offset line
 	call writestring
+	call crlf
 	mov edx, offset practiceOneARM
 	call writestring
+	call crlf
+	mov edx, offset intermediate_1Text
+	call writestring
+	call crlf
+	mov edx, offset intermediate_2Text
+	call writestring
+	call crlf
+	mov edx, offset intermediate_3Text
+	call writestring
+	call crlf
 	
 	
 	
@@ -81,8 +95,9 @@ main PROC
 	
 	
 	
-	
-	
+	call crlf
+	call crlf
+	call crlf
 	INVOKE ExitProcess, 0
 main ENDP
 
