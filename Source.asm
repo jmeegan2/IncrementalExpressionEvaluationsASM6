@@ -21,8 +21,13 @@ byte_1Text			BYTE		"The value in 'byte_1' is      : ",0
 byte_2				BYTE		70d
 byte_2Text			BYTE		"The value in 'byte_2' is      : ",0
 phrasePracticeOne	byte		"Practice Expression #01",0
+phrasePracticeTwo	byte		"Practice Expression #02",0
 line				byte		"------------------------------------" ,0
-PracticeOneARM		byte		"-(integer_1 + integer_2)", 0
+practiceOneARM		byte		"-(integer_1 + integer_2)", 0			;ARM just means arithmetic 
+practiceOneARMpart2	byte		"-(intermediate_1)", 0
+practiceTwoARM		byte		"integer_2 - integer_1 + 2(integer_2)", 0			;ARM just means arithmetic 
+practiceTwoARMpart2	byte		"integer_2 - integer_1 + intermediate_1", 0
+practiceTwoARMpart3	byte		"intermediate_2 + intemediate_1", 0
 intermediate_1		BYTE		0 
 intermediate_1Text  byte		"The value in 'intermiate_1' is :", 0
 intermediate_2		byte		0
@@ -30,6 +35,7 @@ intermediate_2Text  byte		"The value in 'intermiate_2' is :", 0
 intermediate_3		byte		0
 intermediate_3Text  byte		"The value in 'intermiate_3' is :", 0
 phrase_plus			BYTE		"+", 0
+phrase_minus		BYTE		"-", 0
 imABYTEVariable					BYTE	10d
 ; CODE SEGMENT
 .code
@@ -68,7 +74,9 @@ main PROC
 	CALL WriteDec
 	call crlf
 	call crlf
-	
+
+;Start of Practice Expression #01
+
 	mov edx, offset phrasePracticeOne
 	call writestring
 	call crlf
@@ -106,22 +114,41 @@ main PROC
 	call crlf
 	call crlf
 	
-	;movzx eax, intermediate_1
-	;add eax, integer_1
-	;add eax, integer_2
-	;movzx eax, intermediate_1, al
-	;call writedec
+	;Part two of practic expression #01
 	
+	mov edx, offset practiceOneArmpart2
+	call writestring
+	call crlf
+	mov edx, offset intermediate_1Text
+	call writestring
+	MOV EDX, OFFSET phrase_minus
+	CALL WriteString
+	movzx eax, intermediate_1
+	call writeDec
 	
-	;MOVZX EAX, intermediate_1
-	;ADD EAX, 10
-	;MOV intermediate_1, AL				
-	;CALL WriteDec
+	call crlf
+	mov edx, offset intermediate_2Text
+	call writestring
+	MOV EDX, OFFSET phrase_plus
+	CALL WriteString
+	movzx eax, intermediate_2
+	call writedec
+	call crlf
+
+	mov edx, offset intermediate_3Text
+	CALL WriteString
+	MOV EDX, OFFSET phrase_plus
+	CALL WriteString
+	movzx eax, intermediate_3
+	call writedec
+	call crlf
+	call crlf
 	
-	CALL Crlf
-	
-	
-	
+	mov edx, offset phrasePracticeTwo
+	call writestring
+	call crlf
+	mov edx, offset line
+	call writestring
 	call crlf
 	call crlf
 	call crlf
