@@ -80,6 +80,14 @@ main PROC
 	call crlf
 	mov edx, offset intermediate_1Text
 	call writestring
+	MOV EDX, OFFSET phrase_plus
+	CALL WriteString
+	movzx eax, intermediate_1
+	add eax, integer_1
+	add eax, integer_2
+	;movzx eax, intermediate_1, al
+	call writedec
+	
 	call crlf
 	mov edx, offset intermediate_2Text
 	call writestring
@@ -88,12 +96,17 @@ main PROC
 	call writestring
 	call crlf
 	
+	;movzx eax, intermediate_1
+	;add eax, integer_1
+	;add eax, integer_2
+	;movzx eax, intermediate_1, al
+	;call writedec
 	
 	
-	MOVZX EAX, intermediate_1
-	ADD EAX, 10
-	MOV intermediate_1, AL		
-	CALL WriteDec
+	;MOVZX EAX, intermediate_1
+	;ADD EAX, 10
+	;MOV intermediate_1, AL				
+	;CALL WriteDec
 	
 	CALL Crlf
 	
