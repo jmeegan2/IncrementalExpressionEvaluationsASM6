@@ -17,17 +17,17 @@ integer_1Text		BYTE		"The value in 'integer_1' is    : ", 0
 integer_2			DWORD		50d , 0
 integer_2Text		BYTE		"The value in 'integer_2' is    : ",0	
 byte_1				BYTE		30d
-byte_1Text			BYTE		"The value in 'byte_1' is       : ",0
+byte_1Text			BYTE		"The value in 'byte_1' is      : ",0
 byte_2				BYTE		70d
-byte_2Text			BYTE		"The value in 'byte_2' is       : ",0
+byte_2Text			BYTE		"The value in 'byte_2' is      : ",0
 phrasePracticeOne	byte		"Practice Expression #01",0
 line				byte		"------------------------------------" ,0
 PracticeOneARM		byte		"-(integer_1 + integer_2)", 0
 intermediate_1		BYTE		0 
 intermediate_1Text  byte		"The value in 'intermiate_1' is :", 0
-intermediate_2		DWORD		0
+intermediate_2		byte		0
 intermediate_2Text  byte		"The value in 'intermiate_2' is :", 0
-intermediate_3		DWORD		0
+intermediate_3		byte		0
 intermediate_3Text  byte		"The value in 'intermiate_3' is :", 0
 phrase_plus			BYTE		"+", 0
 imABYTEVariable					BYTE	10d
@@ -84,16 +84,26 @@ main PROC
 	CALL WriteString
 	movzx eax, intermediate_1
 	add eax, integer_1
-	add eax, integer_2
-	;movzx eax, intermediate_1, al
+	add eax, integer_2 
 	call writedec
 	
+
 	call crlf
 	mov edx, offset intermediate_2Text
 	call writestring
+	MOV EDX, OFFSET phrase_plus
+	CALL WriteString
+	movzx eax, intermediate_2
+	call writedec
 	call crlf
+
 	mov edx, offset intermediate_3Text
-	call writestring
+	CALL WriteString
+	MOV EDX, OFFSET phrase_plus
+	CALL WriteString
+	movzx eax, intermediate_3
+	call writedec
+	call crlf
 	call crlf
 	
 	;movzx eax, intermediate_1
