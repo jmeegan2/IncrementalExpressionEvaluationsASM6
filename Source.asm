@@ -59,7 +59,7 @@ phrase_minus		BYTE		"-", 0
 ; CODE SEGMENT
 .code
 main PROC
-	
+	;Showing the values of integer_1, integer_2, byte_1, byte_2
 	MOV EDX, offset integer_1Text
 	CALL WriteString
 	MOV EDX, OFFSET phrase_plus
@@ -256,14 +256,39 @@ main PROC
 	CALL WriteString
 	movzx eax, intermediate_3
 	call writedec
-	
-	
-	call crlf
-	
-	
-	
 	call crlf
 	call crlf
+	
+	;Start of practice expression three 
+
+	mov edx, offset phrasePracticeThree
+	call writestring 
+	call crlf
+	mov edx, offset practiceThreeARM  ;//intermediate_2 + intermediate_1//
+	call writestring
+	call crlf 
+	mov edx, offset intermediate_1Text
+	call writestring
+	MOV EDX, OFFSET phrase_plus
+	CALL WriteString
+	movzx eax, intermediate_1
+	call writedec
+	call crlf
+	mov edx, offset intermediate_2Text
+	call writestring
+	MOV EDX, OFFSET phrase_plus
+	CALL WriteString
+	movzx eax, intermediate_2
+	call writedec
+	call crlf
+	mov edx, offset intermediate_3Text
+	call writestring
+	MOV EDX, OFFSET phrase_plus
+	CALL WriteString
+	movzx eax, intermediate_3
+	call writedec
+	call crlf 
+
 	INVOKE ExitProcess, 0
 main ENDP
 
