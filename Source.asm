@@ -28,11 +28,11 @@ practiceOneARMpart2	byte		"-(intermediate_1)", 0
 practiceTwoARM		byte		"integer_2 - integer_1 + 2(integer_2)", 0			;ARM just means arithmetic 
 practiceTwoARMpart2	byte		"integer_2 - integer_1 + intermediate_1", 0
 practiceTwoARMpart3	byte		"intermediate_2 + intemediate_1", 0
-intermediate_1		BYTE		0 
+intermediate_1		BYTE		? 
 intermediate_1Text  byte		"The value in 'intermiate_1' is :", 0
-intermediate_2		byte		0
+intermediate_2		byte		?
 intermediate_2Text  byte		"The value in 'intermiate_2' is :", 0
-intermediate_3		byte		0
+intermediate_3		byte		?
 intermediate_3Text  byte		"The value in 'intermiate_3' is :", 0
 phrase_plus			BYTE		"+", 0
 phrase_minus		BYTE		"-", 0
@@ -83,7 +83,7 @@ main PROC
 	mov edx, offset line
 	call writestring
 	call crlf
-	mov edx, offset practiceOneARM
+	mov edx, offset practiceOneARM	; -(integer_1 + integer_2)
 	call writestring
 	call crlf
 	mov edx, offset intermediate_1Text
@@ -116,14 +116,16 @@ main PROC
 	
 	;Part two of practic expression #01
 	
-	mov edx, offset practiceOneArmpart2
+	mov edx, offset practiceOneArmpart2		;-(intermediate_1)
 	call writestring
 	call crlf
 	mov edx, offset intermediate_1Text
 	call writestring
 	MOV EDX, OFFSET phrase_minus
 	CALL WriteString
-	movzx eax, intermediate_1
+	movsx eax, intermediate_1
+	add eax , 60
+	 
 	call writeDec
 	
 	call crlf
@@ -144,13 +146,14 @@ main PROC
 	call crlf
 	call crlf
 	
+	;start of expression #02
 	mov edx, offset phrasePracticeTwo
 	call writestring
 	call crlf
 	mov edx, offset line
 	call writestring
 	call crlf
-	mov edx, offset practiceTwoARM
+	mov edx, offset practiceTwoARM  ;//integer_2 - integer_1 +2(integer_2//
 	call writestring
 	call crlf
 	mov edx, offset intermediate_1Text
@@ -158,8 +161,10 @@ main PROC
 	MOV EDX, OFFSET phrase_plus
 	CALL WriteString
 	movzx eax, intermediate_1
-	add eax, integer_1
-	add eax, integer_2 
+	add eax, integer_2	;50
+	sub eax, integer_1	;-10
+	add eax, integer_2	;+50
+	add eax, integer_2	;+50
 	call writedec
 	
 
