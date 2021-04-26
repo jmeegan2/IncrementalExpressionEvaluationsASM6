@@ -18,7 +18,7 @@ integer_1Text		BYTE		"The value in 'integer_1' is    : ", 0
 integer_2			DWORD		40d , 0
 integer_2Text		BYTE		"The value in 'integer_2' is    : ",0	
 
-byte_1				BYTE		-20d
+byte_1				BYTE		20d 
 byte_1Text			BYTE		"The value in 'byte_1' is      : ",0
 
 byte_2				BYTE		100d
@@ -179,10 +179,8 @@ main PROC
 	MOV EDX, OFFSET phrase_plus
 	CALL WriteString
 	movzx eax, intermediate_1
-	add eax, integer_2	;50
-	sub eax, integer_1	;-10
-	add eax, integer_2	;+50
-	add eax, integer_2	;+50
+	add eax, integer_2	;+40
+	add eax, integer_2	;+40
 	call writedec
 	
 
@@ -191,6 +189,7 @@ main PROC
 	call writestring
 	MOV EDX, OFFSET phrase_plus
 	CALL WriteString
+	
 	movzx eax, intermediate_2
 	call writedec
 	call crlf
@@ -211,7 +210,7 @@ main PROC
 	call writestring
 	MOV EDX, OFFSET phrase_plus
 	CALL WriteString
-	movzx eax, intermediate_1
+	mov eax, 80d
 	call writedec
 	call crlf
 	mov edx, offset intermediate_2Text
@@ -219,6 +218,8 @@ main PROC
 	MOV EDX, OFFSET phrase_plus
 	CALL WriteString
 	movzx eax, intermediate_2
+	add eax, integer_2
+	sub eax, integer_1
 	call writedec
 	call crlf
 	mov edx, offset intermediate_3Text
@@ -239,7 +240,8 @@ main PROC
 	call writestring
 	MOV EDX, OFFSET phrase_plus
 	CALL WriteString
-	movzx eax, intermediate_1
+	movsx eax, intermediate_1
+	add eax, 130d
 	call writedec
 	call crlf
 	mov edx, offset intermediate_2Text
@@ -247,6 +249,7 @@ main PROC
 	MOV EDX, OFFSET phrase_plus
 	CALL WriteString
 	movzx eax, intermediate_2
+	add eax, 50d
 	call writedec
 	call crlf
 	mov edx, offset intermediate_3Text
@@ -271,9 +274,12 @@ main PROC
 	call crlf 
 	mov edx, offset intermediate_1Text
 	call writestring
-	MOV EDX, OFFSET phrase_plus
+	MOV EDX, OFFSET phrase_minus
 	CALL WriteString
 	movzx eax, intermediate_1
+	mov sum, eax
+	add eax, 10
+	add eax, 20
 	call writedec
 	call crlf
 	mov edx, offset intermediate_2Text
