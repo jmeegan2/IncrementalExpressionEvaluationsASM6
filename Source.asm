@@ -143,11 +143,9 @@ main PROC
 	call writestring
 	MOV EDX, OFFSET phrase_minus
 	CALL WriteString
-	movsx eax, intermediate_1
+	mov eax, sum
 	call writedec
 	 
-	call writeDec
-	
 	call crlf
 	mov edx, offset intermediate_2Text
 	call writestring
