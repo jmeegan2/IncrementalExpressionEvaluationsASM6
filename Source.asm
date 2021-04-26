@@ -376,6 +376,56 @@ main PROC
 	call writedec
 	call crlf 
 	call crlf
+	mov edx, offset practiceFourARMpart3 ;//intermediate_2 + intermediate_1//
+	call writestring
+	call crlf 
+	mov edx, offset intermediate_1Text
+	call writestring
+	MOV EDX, OFFSET phrase_plus
+	CALL WriteString
+	movzx eax, intermediate_1
+	call writedec
+	call crlf
+	mov edx, offset intermediate_2Text
+	call writestring
+	MOV EDX, OFFSET phrase_plus
+	CALL WriteString
+	movzx eax, intermediate_2
+	call writedec
+	call crlf
+	mov edx, offset intermediate_3Text
+	call writestring
+	MOV EDX, OFFSET phrase_plus
+	CALL WriteString
+	movzx eax, intermediate_3
+	call writedec
+	call crlf 
+	call crlf
+	mov edx, offset practiceFourARMpart4 ;//intermediate_2 + intermediate_1//
+	call writestring
+	call crlf 
+	mov edx, offset intermediate_1Text
+	call writestring
+	MOV EDX, OFFSET phrase_plus
+	CALL WriteString
+	movzx eax, intermediate_1
+	call writedec
+	call crlf
+	mov edx, offset intermediate_2Text
+	call writestring
+	MOV EDX, OFFSET phrase_plus
+	CALL WriteString
+	movzx eax, intermediate_2
+	call writedec
+	call crlf
+	mov edx, offset intermediate_3Text
+	call writestring
+	MOV EDX, OFFSET phrase_plus
+	CALL WriteString
+	movzx eax, intermediate_3
+	call writedec
+	call crlf 
+	call crlf
 	call crlf 
 	INVOKE ExitProcess, 0
 main ENDP
