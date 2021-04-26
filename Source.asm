@@ -205,7 +205,7 @@ main PROC
 	call crlf
 	call crlf
 	; start of part two of practice #2
-	mov edx, offset practiceTwoARMpart2  ;//integer_2 - integer_1 +2(integer_2//
+	mov edx, offset practiceTwoARMpart2  ;//integer_2 - integer1 + intermediate_1//
 	call writestring
 	call crlf
 	mov edx, offset intermediate_1Text
@@ -233,7 +233,7 @@ main PROC
 	call crlf
 	call crlf
 	; start of part three of practice #2
-	mov edx, offset practiceTwoARMpart3  ;//intermediate_2 + intermediate_1//
+	mov edx, offset practiceTwoARMpart3  ;//intermediate_2 + intermediate_1 //
 	call writestring
 	call crlf
 	mov edx, offset intermediate_1Text
@@ -267,7 +267,7 @@ main PROC
 	mov edx, offset line
 	call writestring
 	call crlf
-	mov edx, offset practiceThreeARM  ;//intermediate_2 + intermediate_1//
+	mov edx, offset practiceThreeARM  ;//integer_1 + byte_1 - integer_2//
 	call writestring
 	call crlf 
 	mov edx, offset intermediate_1Text
@@ -292,7 +292,7 @@ main PROC
 	call writedec
 	call crlf 
 	call crlf
-	mov edx, offset practiceThreeARMpart2 ;//intermediate_2 + intermediate_1//
+	mov edx, offset practiceThreeARMpart2 ;//intermediate_1 - integer_2//
 	call writestring
 	call crlf 
 	mov edx, offset intermediate_1Text
@@ -326,7 +326,7 @@ main PROC
 	mov edx, offset line
 	call writestring
 	call crlf
-	mov edx, offset practiceFourARM  ;//intermediate_2 + intermediate_1//
+	mov edx, offset practiceFourARM  ;//byte_2-byte_1 +2(integer_2 - byte_1)//
 	call writestring
 	call crlf 
 	mov edx, offset intermediate_1Text
@@ -351,7 +351,7 @@ main PROC
 	call writedec
 	call crlf 
 	call crlf
-	mov edx, offset practiceFourARMpart2 ;//intermediate_2 + intermediate_1//
+	mov edx, offset practiceFourARMpart2 ;//byte_2 - byte_1 + 2(intermediate_1 - byte_1))//
 	call writestring
 	call crlf 
 	mov edx, offset intermediate_1Text
@@ -376,7 +376,7 @@ main PROC
 	call writedec
 	call crlf 
 	call crlf
-	mov edx, offset practiceFourARMpart3 ;//intermediate_2 + intermediate_1//
+	mov edx, offset practiceFourARMpart3 ;//byte_2 - byte_1 + intermediate_2//
 	call writestring
 	call crlf 
 	mov edx, offset intermediate_1Text
@@ -401,7 +401,7 @@ main PROC
 	call writedec
 	call crlf 
 	call crlf
-	mov edx, offset practiceFourARMpart4 ;//intermediate_2 + intermediate_1//
+	mov edx, offset practiceFourARMpart4 ;//intermediate_3 + intermediate_2//
 	call writestring
 	call crlf 
 	mov edx, offset intermediate_1Text
