@@ -12,16 +12,16 @@ ExitProcess PROTO, dwExitCode:DWORD
 
 ; DATA SEGMENT
 .data
-integer_1			DWORD		10d, 0
+integer_1			DWORD		-10d, 0
 integer_1Text		BYTE		"The value in 'integer_1' is    : ", 0	
 
-integer_2			DWORD		50d , 0
+integer_2			DWORD		40d , 0
 integer_2Text		BYTE		"The value in 'integer_2' is    : ",0	
 
-byte_1				BYTE		30d
+byte_1				BYTE		-20d
 byte_1Text			BYTE		"The value in 'byte_1' is      : ",0
 
-byte_2				BYTE		70d
+byte_2				BYTE		100d
 byte_2Text			BYTE		"The value in 'byte_2' is      : ",0
 
 phrasePracticeOne	byte		"Practice Expression #01",0
@@ -55,14 +55,14 @@ intermediate_3Text  byte		"The value in 'intermiate_3' is :", 0
 phrase_plus			BYTE		"+", 0
 phrase_minus		BYTE		"-", 0
 
-
+sum dword ?
 ; CODE SEGMENT
 .code
 main PROC
 	;Showing the values of integer_1, integer_2, byte_1, byte_2
 	MOV EDX, offset integer_1Text
 	CALL WriteString
-	MOV EDX, OFFSET phrase_plus
+	MOV EDX, OFFSET phrase_minus
 	CALL WriteString
 	MOV EAX, 10d
 	CALL WriteDec
@@ -72,16 +72,16 @@ main PROC
 	call writestring
 	MOV EDX, OFFSET phrase_plus
 	CALL WriteString
-	MOV EAX, 50d
+	MOV EAX, 40d
 	CALL WriteDec
 	call crlf
 
 
 	mov edx, offset byte_1
 	call writestring
-	MOV EDX, OFFSET phrase_plus
+	MOV EDX, OFFSET phrase_minus
 	CALL WriteString
-	MOV EAX, 30d
+	MOV EAX, 20d
 	CALL WriteDec
 	call crlf
 
@@ -89,7 +89,7 @@ main PROC
 	call writestring
 	MOV EDX, OFFSET phrase_plus
 	CALL WriteString
-	MOV EAX, 70d
+	MOV EAX, 100d
 	CALL WriteDec
 	call crlf
 	call crlf
@@ -109,9 +109,10 @@ main PROC
 	call writestring
 	MOV EDX, OFFSET phrase_plus
 	CALL WriteString
-	movzx eax, intermediate_1
-	add eax, integer_1
-	add eax, integer_2 
+	mov sum, 0d
+	mov eax, integer_1
+	add eax, integer_2			;first part done 4/25
+	mov sum, eax
 	call writedec
 	
 
@@ -143,7 +144,7 @@ main PROC
 	MOV EDX, OFFSET phrase_minus
 	CALL WriteString
 	movsx eax, intermediate_1
-	add eax , 60
+	call writedec
 	 
 	call writeDec
 	
