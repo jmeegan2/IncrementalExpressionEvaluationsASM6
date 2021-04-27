@@ -45,7 +45,8 @@ practiceFourARMpart2	byte		"byte_2 - byte_1 + 2(intermediate_1)",0
 practiceFourARMpart3	byte		"byte_2 - byte_1 + intermediate_2",0
 practiceFourARMpart4	byte	"intermediate_3 + intermediate _2",0
 
-intermediate_1		BYTE		? 
+realIntermediate_1 dword ?
+intermediate_1		byte		?
 intermediate_1Text  byte		"The value in 'intermiate_1' is :", 0
 intermediate_2		byte		?
 intermediate_2Text  byte		"The value in 'intermiate_2' is :", 0
@@ -109,10 +110,12 @@ main PROC
 	call writestring
 	MOV EDX, OFFSET phrase_plus
 	CALL WriteString
-	mov sum, 0d
-	mov eax, integer_1
-	add eax, integer_2			;first part done 4/25
-	mov sum, eax
+	mov realIntermediate_1, 0d
+	add eax, integer_1
+	add eax, integer_2
+	add eax, ;first part done 4/25
+	mov realIntermediate_1, eax
+	
 	call writedec
 	
 
@@ -306,9 +309,8 @@ main PROC
 	MOV EDX, OFFSET phrase_minus
 	CALL WriteString
 	movzx eax, intermediate_1
-	sub eax, 30
-	sub eax 40
-	call writedec
+	MOV EAX, 10d
+	CALL WriteDec
 	call crlf
 	mov edx, offset intermediate_2Text
 	call writestring
