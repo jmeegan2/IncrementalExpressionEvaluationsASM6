@@ -287,6 +287,7 @@ main PROC
 	MOV EDX, OFFSET phrase_plus
 	CALL WriteString
 	movzx eax, intermediate_2
+	add eax, 50
 	call writedec
 	call crlf
 	mov edx, offset intermediate_3Text
@@ -302,9 +303,11 @@ main PROC
 	call crlf 
 	mov edx, offset intermediate_1Text
 	call writestring
-	MOV EDX, OFFSET phrase_plus
+	MOV EDX, OFFSET phrase_minus
 	CALL WriteString
 	movzx eax, intermediate_1
+	sub eax, 30
+	sub eax 40
 	call writedec
 	call crlf
 	mov edx, offset intermediate_2Text
