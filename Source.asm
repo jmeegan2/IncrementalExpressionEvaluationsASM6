@@ -66,6 +66,7 @@ main PROC
 	MOV EDX, OFFSET phrase_minus
 	CALL WriteString
 	MOV EAX, 10d
+	;idkkkk
 	CALL WriteDec
 	call crlf
 
@@ -110,10 +111,10 @@ main PROC
 	call writestring
 	MOV EDX, OFFSET phrase_plus
 	CALL WriteString
-	mov realIntermediate_1, 0d
+	
 	add eax, integer_1
-	add eax, integer_2
-	add eax, ;first part done 4/25
+	sub eax, integer_2
+										;first part done 4/25	;first part actually done correctly 4/27
 	mov realIntermediate_1, eax
 	
 	call writedec
@@ -146,7 +147,7 @@ main PROC
 	call writestring
 	MOV EDX, OFFSET phrase_minus
 	CALL WriteString
-	mov eax, sum
+	;mov sum, real
 	call writedec
 	 
 	call crlf
